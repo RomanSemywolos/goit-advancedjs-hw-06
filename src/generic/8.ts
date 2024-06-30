@@ -19,6 +19,6 @@ type Form = {
 };
 
 // Реалізуйте Params так, щоб унеможливити поле 'errors' з типу Form
-type Params = Form;
+type Params = { [K in keyof Form as Exclude<K, 'errors'>]: Form[K] };
 
 export {};
